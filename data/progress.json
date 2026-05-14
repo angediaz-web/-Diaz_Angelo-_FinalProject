@@ -1,0 +1,38 @@
+[
+    {
+        "date": "2026-05-14 09:15:18",
+        "lesson": "Classes and Objects",
+        "activity": "Studied lesson",
+        "score": null
+    },
+    {
+        "date": "2026-05-14 09:27:41",
+        "lesson": "Classes and Objects",
+        "activity": "Studied lesson",
+        "score": null
+    },
+    {
+        "date": "2026-05-14 09:28:22",
+        "lesson": "Classes and Objects",
+        "activity": "Quiz",
+        "score": "2/2"
+    },
+    {
+        "date": "2026-05-14 09:28:45",
+        "lesson": "Classes and Objects",
+        "activity": "Studied lesson",
+        "score": null
+    },
+    {
+        "date": "2026-05-14 09:35:33",
+        "lesson": "Classes and Objects",
+        "activity": "Studied lesson",
+        "score": null
+    },
+    {
+        "date": "2026-05-14 09:43:37",
+        "lesson": "Classes and Objects",
+        "activity": "Studied lesson",
+        "score": null
+    }
+]
