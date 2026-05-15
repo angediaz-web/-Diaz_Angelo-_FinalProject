@@ -7,14 +7,12 @@ This module stores all lesson content and quiz data.
 from models.lesson import Lesson
 
 
-
 def load_lessons():
     """Creates the lesson objects used by the application.
 
     Returns:
         list: List of Lesson objects.
     """
-
     return [
         Lesson(
             1,
@@ -22,33 +20,14 @@ def load_lessons():
             """
 Classes and objects are one of the most important concepts in Python programming.
 
-A class is considered a blueprint or template for creating objects. It defines
-what attributes and methods an object should have. An object is the actual
-instance created from a class.
+A class is a blueprint for creating objects. An object is an actual instance
+created from a class.
 
-Attributes are variables that belong to the object, while methods are functions
-inside the class that define the behavior of the object.
+Attributes are variables that belong to an object, while methods are functions
+inside a class that define object behavior.
 
-Object-Oriented Programming (OOP) helps programmers organize code into reusable
-and manageable structures. It also improves readability and maintainability.
-
-For example:
-- A Student class may contain attributes such as name and age.
-- A Student class may also contain methods such as introduce() or study().
-
-The __init__() method is called the constructor. It automatically runs whenever
-an object is created from a class.
-
-Benefits of using classes and objects:
-1. Code reusability
-2. Better organization
-3. Easier debugging
-4. Scalability for larger applications
-
-Real-life Example:
-A car can be considered a class.
-Different cars such as Toyota, Honda, or Ford are objects created from that
-class.
+Object-Oriented Programming helps organize code, reduce repetition, and make
+larger programs easier to maintain.
 """,
             """class Student:
     def __init__(self, name, age):
@@ -56,217 +35,103 @@ class.
         self.age = age
 
     def introduce(self):
-        return f"Hello, my name is {self.name} and I am {self.age} years old."
+        return f"Hello, I am {self.name} and I am {self.age} years old."
 
-student1 = Student("Angelo", 20)
-print(student1.introduce())""",
+student = Student("Angelo", 20)
+print(student.introduce())""",
             [
                 {
-                    "question": "What is a class in Python?",
-                    "choices": [
-                        "A. A blueprint for objects",
-                        "B. A loop",
-                        "C. A text file",
-                        "D. A keyword",
-                    ],
+                    "question": "What is a class?",
+                    "choices": ["A. Blueprint for objects", "B. A loop", "C. A file", "D. A number"],
                     "answer": "A",
                 },
                 {
-                    "question": "What is the purpose of __init__()?",
-                    "choices": [
-                        "A. To stop the program",
-                        "B. To initialize object attributes",
-                        "C. To create loops",
-                        "D. To sort lists",
-                    ],
-                    "answer": "B",
-                },
-                {
                     "question": "What is an object?",
-                    "choices": [
-                        "A. An instance of a class",
-                        "B. A Python library",
-                        "C. A file",
-                        "D. A loop condition",
-                    ],
+                    "choices": ["A. Instance of a class", "B. A folder", "C. A keyword", "D. A string only"],
                     "answer": "A",
                 },
             ],
         ),
+
         Lesson(
             2,
             "File Handling with JSON",
             """
-File handling allows programs to store data permanently even after the program
-stops running.
+File handling allows programs to save and load data permanently.
 
-Python provides built-in functions such as open(), read(), and write() for file
-operations.
+JSON means JavaScript Object Notation. It is commonly used to store structured
+data such as dictionaries and lists.
 
-JSON stands for JavaScript Object Notation. It is a lightweight format used to
-store and exchange data.
-
-JSON is commonly used because:
-1. It is human-readable
-2. It is easy to store dictionaries and lists
-3. Many programming languages support it
-
-The json module in Python provides:
-- json.dump() to write Python data into a JSON file
-- json.load() to read JSON data from a file
-
-The with open() statement is important because it automatically closes the file
-after use. This prevents resource leaks and makes file handling safer.
-
-Real-life Example:
-Applications such as games or student systems save user progress into JSON
-files so the information remains available later.
+In this application, JSON is used to save study progress and quiz scores inside
+the progress.json file.
 """,
             """import json
 
-student_data = {
-    "name": "Angelo",
-    "score": 95,
-    "subject": "Python"
-}
+data = {"name": "Angelo", "score": 95}
 
-with open("student.json", "w") as file:
-    json.dump(student_data, file, indent=4)
+with open("record.json", "w") as file:
+    json.dump(data, file, indent=4)
 
-with open("student.json", "r") as file:
+with open("record.json", "r") as file:
     loaded_data = json.load(file)
 
 print(loaded_data)""",
             [
                 {
-                    "question": "What does JSON stand for?",
-                    "choices": [
-                        "A. Java Standard Output Network",
-                        "B. JavaScript Object Notation",
-                        "C. Java Source Open Network",
-                        "D. Joined Simple Object Name",
-                    ],
-                    "answer": "B",
-                },
-                {
-                    "question": "Which function writes data into a JSON file?",
-                    "choices": [
-                        "A. json.dump()",
-                        "B. json.read()",
-                        "C. json.close()",
-                        "D. json.stop()",
-                    ],
+                    "question": "What is JSON used for?",
+                    "choices": ["A. Storing data", "B. Drawing images", "C. Playing music", "D. Deleting Python"],
                     "answer": "A",
                 },
                 {
-                    "question": "Why is with open() useful?",
-                    "choices": [
-                        "A. It automatically closes files",
-                        "B. It deletes files",
-                        "C. It creates classes",
-                        "D. It sorts dictionaries",
-                    ],
+                    "question": "Which function writes data to JSON?",
+                    "choices": ["A. json.dump()", "B. json.read()", "C. json.stop()", "D. json.input()"],
                     "answer": "A",
                 },
             ],
         ),
+
         Lesson(
             3,
             "Data Structures and Searching",
             """
-Data structures are used to organize and manage data efficiently.
+Data structures help organize and manage data.
 
-Python provides several built-in data structures:
-1. Lists
-2. Tuples
-3. Dictionaries
-4. Sets
+Python includes lists, tuples, dictionaries, and sets. Lists store ordered items,
+while dictionaries store key-value pairs.
 
-Lists store multiple items in order and allow modification.
-Dictionaries store data using key-value pairs.
-
-Algorithms are step-by-step procedures used to solve problems.
-One common algorithm is linear search.
-
-Linear search works by checking items one by one until the target item is found.
-Although simple, it is effective for small datasets.
-
-Sorting is another important operation.
-Sorting organizes data in ascending or descending order.
-
-Real-life Example:
-A school system may search for a student name from a list of enrolled students.
+Searching is an algorithm used to find information. This project uses linear
+search, which checks each lesson one by one until a match is found.
 """,
-            """lessons = ["Classes", "Files", "Algorithms", "Recursion"]
-
-target = "Algorithms"
+            """lessons = ["Classes", "Files", "Algorithms"]
+target = "Files"
 
 for lesson in lessons:
     if lesson == target:
-        print("Lesson found!")
-        break""",
+        print("Lesson found!")""",
             [
                 {
                     "question": "Which data structure stores key-value pairs?",
-                    "choices": [
-                        "A. List",
-                        "B. Dictionary",
-                        "C. Tuple",
-                        "D. String",
-                    ],
-                    "answer": "B",
-                },
-                {
-                    "question": "What does linear search do?",
-                    "choices": [
-                        "A. Finds data step-by-step",
-                        "B. Deletes variables",
-                        "C. Creates classes",
-                        "D. Stops recursion",
-                    ],
+                    "choices": ["A. Dictionary", "B. List", "C. Tuple", "D. String"],
                     "answer": "A",
                 },
                 {
-                    "question": "Why is sorting useful?",
-                    "choices": [
-                        "A. It organizes data",
-                        "B. It closes files",
-                        "C. It removes objects",
-                        "D. It creates generators",
-                    ],
+                    "question": "What does linear search do?",
+                    "choices": ["A. Checks items one by one", "B. Deletes files", "C. Creates objects", "D. Stops loops"],
                     "answer": "A",
                 },
             ],
         ),
+
         Lesson(
             4,
             "Recursion and Base Case",
             """
-Recursion is a programming technique where a function calls itself repeatedly.
+Recursion happens when a function calls itself.
 
-A recursive function must always contain a base case.
-The base case is the condition that stops the recursion.
-Without a base case, the function may continue forever and cause an error.
+A recursive function must have a base case. The base case is the condition that
+stops recursion. Without it, the function may continue forever and cause an error.
 
-Recursion is useful for solving problems that can be divided into smaller
-subproblems.
-
-Examples of recursion include:
-1. Factorial computation
-2. Fibonacci sequence
-3. Countdown timers
-4. Tree traversal algorithms
-
-Advantages of recursion:
-- Cleaner code for repetitive problems
-- Easier implementation for mathematical concepts
-
-Disadvantages of recursion:
-- May consume more memory
-- Can become difficult to debug if overly complex
-
-Real-life Example:
-A countdown timer repeatedly decreases numbers until it reaches zero.
+This project uses a recursive countdown before opening a lesson.
 """,
             """def countdown(number):
     if number == 0:
@@ -280,63 +145,26 @@ countdown(5)""",
             [
                 {
                     "question": "What is recursion?",
-                    "choices": [
-                        "A. A function calling itself",
-                        "B. A file handler",
-                        "C. A Python library",
-                        "D. A sorting method",
-                    ],
+                    "choices": ["A. Function calling itself", "B. File writing", "C. Sorting only", "D. A variable"],
                     "answer": "A",
                 },
                 {
-                    "question": "What is the purpose of a base case?",
-                    "choices": [
-                        "A. To stop recursion",
-                        "B. To open files",
-                        "C. To sort lists",
-                        "D. To create dictionaries",
-                    ],
-                    "answer": "A",
-                },
-                {
-                    "question": "What may happen without a base case?",
-                    "choices": [
-                        "A. Infinite recursion",
-                        "B. Faster execution",
-                        "C. Automatic sorting",
-                        "D. File corruption",
-                    ],
+                    "question": "What is the base case?",
+                    "choices": ["A. Condition that stops recursion", "B. A folder", "C. A JSON file", "D. A class name"],
                     "answer": "A",
                 },
             ],
         ),
+
         Lesson(
             5,
             "Generators and Comprehensions",
             """
-Generators are special functions that use the yield keyword.
+Generators produce values one at a time using the yield keyword.
 
-Unlike normal functions that return all values at once, generators produce
-values one at a time. This saves memory and improves efficiency.
+They are useful because they save memory, especially when working with large data.
 
-List comprehensions provide a shorter and cleaner way to create lists.
-
-Generators are useful when handling large amounts of data because they generate
-items only when needed.
-
-Advantages of generators:
-1. Memory efficient
-2. Faster for large datasets
-3. Cleaner iteration
-
-Advantages of comprehensions:
-1. Shorter syntax
-2. Easier readability
-3. Faster execution in many cases
-
-Real-life Example:
-A streaming application loads videos one at a time instead of loading
-everything at once.
+Comprehensions are shorter ways to create lists, dictionaries, or sets.
 """,
             """def even_numbers(limit):
     for number in range(1, limit + 1):
@@ -349,33 +177,13 @@ print(list(even_numbers(10)))
 print(squares)""",
             [
                 {
-                    "question": "What keyword is used in generators?",
-                    "choices": [
-                        "A. stop",
-                        "B. yield",
-                        "C. close",
-                        "D. delete",
-                    ],
-                    "answer": "B",
-                },
-                {
-                    "question": "What is the advantage of generators?",
-                    "choices": [
-                        "A. Memory efficiency",
-                        "B. Automatic sorting",
-                        "C. File deletion",
-                        "D. Infinite loops",
-                    ],
+                    "question": "What keyword is used by generators?",
+                    "choices": ["A. yield", "B. returnonly", "C. stop", "D. close"],
                     "answer": "A",
                 },
                 {
-                    "question": "What does a list comprehension do?",
-                    "choices": [
-                        "A. Creates lists in a shorter way",
-                        "B. Stops recursion",
-                        "C. Creates files",
-                        "D. Deletes objects",
-                    ],
+                    "question": "What is a list comprehension?",
+                    "choices": ["A. Short way to create lists", "B. A file", "C. A folder", "D. A database"],
                     "answer": "A",
                 },
             ],
