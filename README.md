@@ -99,7 +99,6 @@ Correct!
 ```
 
 ## YouTube Video Demonstration
-Add your YouTube video link here:
 
 ```text
 YouTube Link: https://youtu.be/FlvLJeMwTcs?si=wIr9YZ01-q0ZwuCf
